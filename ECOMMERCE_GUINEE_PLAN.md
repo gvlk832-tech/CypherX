@@ -1,139 +1,190 @@
-# Application e-commerce pour la Guinée (sans paiement automatique)
+# LaGuinèmakiti — Plan produit (Marketplace Guinée)
 
-## Vision
-Créer une marketplace visuelle (inspirée de Pinterest/Shine) où :
-- des vendeurs créent une boutique,
-- publient des produits (articles, vêtements, etc.),
-- des clients découvrent les offres,
+## 1) Concept (simple et clair)
+**LaGuinèmakiti** est une marketplace mobile “Pinterest + Jumia” pensée pour la Guinée :
+- les vendeurs créent leur boutique,
+- publient des produits (photos, prix, description),
+- les clients découvrent via un feed visuel,
 - ajoutent au panier,
-- passent commande,
-- finalisent via WhatsApp (sans paiement intégré).
+- commandent et paient selon les moyens locaux.
 
-## Fonctionnalités demandées
+## 2) Objectifs business
+- Digitaliser le commerce local en facilitant la vente en ligne.
+- Créer un environnement de confiance (anti-arnaque).
+- S’adapter aux habitudes de paiement guinéennes.
+- Générer un revenu plateforme via commission sur ventes.
 
-### 1) Comptes & rôles
-- Inscription/connexion **Client**.
-- Inscription/connexion **Vendeur**.
-- Profil utilisateur (nom, téléphone, ville, photo facultative).
-- Vérification basique vendeur (numéro WhatsApp + identité commerciale).
+---
 
-### 2) Espace vendeur
-- Création de boutique (nom, description, logo, localisation).
-- Ajout / modification / suppression de produits.
-- Gestion du stock et statut (disponible, rupture).
-- Galerie d’images produit.
+## 3) Rôles utilisateurs
 
-### 3) Catalogue client
-- Fil visuel type mosaïque.
-- Recherche par mot-clé.
-- Filtres : catégorie, prix, ville, disponibilité.
-- Détail produit (photos, prix, vendeur, description, stock).
+### A. Client
+- Créer un compte.
+- Explorer les produits (feed + recherche + filtres).
+- Ajouter aux favoris et au panier.
+- Commander et payer.
+- Suivre ses commandes.
+- Noter les vendeurs/produits.
 
-### 4) Panier (ajout demandé)
-- Ajouter/supprimer produit.
-- Modifier quantités.
-- Calcul sous-total par vendeur.
-- Un panier peut contenir des articles de plusieurs vendeurs.
+### B. Vendeur
+- Créer son compte vendeur et sa boutique.
+- Ajouter/éditer ses produits.
+- Voir et traiter les commandes.
+- Recevoir sa part automatiquement (split payment).
+- Accéder à des outils IA (description + amélioration photo).
 
-### 5) Commande (ajout demandé)
-- Création d’une commande à partir du panier.
-- Statuts : `pending`, `confirmed`, `shipped`, `delivered`, `cancelled`.
-- Historique des commandes côté client et vendeur.
-- Pas de paiement automatique ; commande confirmée via WhatsApp.
+### C. Admin (plateforme)
+- Vérifier les vendeurs.
+- Modérer contenus/produits frauduleux.
+- Gérer commissions.
+- Gérer litiges/remboursements.
+- Suivre KPI (ventes, conversion, rétention).
 
-### 6) Commande via WhatsApp (obligatoire)
-- Bouton **Commander sur WhatsApp**.
-- Génération automatique d’un message pré-rempli (produits, quantités, total estimatif, référence commande).
-- Redirection vers `wa.me/<numero_vendeur>?text=<message_encode>`.
+---
 
-## Base de données propre (ajout demandé)
+## 4) Fonctionnalités MVP (Phase 1)
 
-### Entités principales
-- `users` (client/vendeur/admin)
+### Authentification
+- Inscription/connexion Client.
+- Inscription/connexion Vendeur.
+- Gestion de profil (nom, téléphone, ville, avatar).
+
+### Marketplace
+- Feed visuel (style Pinterest, scroll infini).
+- Page produit détaillée (images, prix, description, vendeur, stock).
+- Recherche + filtres (prix, catégorie, ville, disponibilité).
+- Favoris (❤️).
+
+### Côté vendeur
+- Création de boutique.
+- Ajout produit (photo, nom, prix, description, stock).
+- Gestion catalogue (actif/inactif, stock).
+
+### Panier & commande
+- Panier multi-vendeurs.
+- Modification quantité/suppression articles.
+- Création de commande.
+- Historique des commandes client/vendeur.
+- Statuts: `pending`, `confirmed`, `shipped`, `delivered`, `cancelled`.
+
+### WhatsApp (important)
+- Bouton “Contacter sur WhatsApp”.
+- Message pré-rempli (produit, quantité, total, référence).
+
+### Paiement initial de confiance
+- Paiement à la livraison (Cash on Delivery) activé au lancement.
+
+---
+
+## 5) Fonctionnalités Phase 2 (monétisation locale)
+
+### Paiements intégrés
+- Intégration **Orange Money**.
+- Intégration **MTN MoMo**.
+- Option complémentaire: **CinetPay / PayDunya** comme agrégateurs.
+
+### Commission plateforme
+- Taux de commission paramétrable (ex: 5% à 12%).
+- Calcul automatique à la commande.
+- Reporting vendeur (montant brut, commission, net).
+
+### Split payment automatique
+- À chaque paiement validé:
+  - part plateforme prélevée automatiquement,
+  - part vendeur versée automatiquement.
+- Journal comptable par transaction.
+
+---
+
+## 6) IA à intégrer
+
+### A. Recommandation produits (client)
+- Suggestions personnalisées selon:
+  - clics,
+  - favoris,
+  - historique commandes,
+  - produits similaires.
+- Objectif: augmenter le taux de conversion.
+
+### B. Génération de descriptions (vendeur)
+- Le vendeur saisit un titre court.
+- L’IA propose une description commerciale propre, claire et vendeuse.
+
+### C. Amélioration d’images
+- Nettoyage visuel automatique:
+  - luminosité,
+  - contraste,
+  - recadrage,
+  - fond plus propre.
+
+---
+
+## 7) Confiance & sécurité (obligatoire)
+- Vérification vendeurs (KYC léger: téléphone + pièce + infos boutique).
+- Badge “Vendeur vérifié”.
+- Système d’avis/notes ⭐.
+- Détection d’annonces suspectes (prix anormal, contenu frauduleux).
+- Signalement produit/vendeur par les clients.
+- Logs d’audit admin.
+
+---
+
+## 8) Écrans principaux (UX)
+1. **Accueil**: feed mosaïque visuel + scroll infini.
+2. **Recherche**: barre + filtres avancés.
+3. **Page produit**: visuels, prix, vendeur, avis, CTA acheter/WhatsApp.
+4. **Panier**: liste produits, frais, total, bouton commander.
+5. **Checkout**: adresse, mode de livraison, mode de paiement.
+6. **Profil client**: commandes, favoris, paramètres.
+7. **Dashboard vendeur**: catalogue, commandes, revenus.
+8. **Console admin**: vérification, modération, métriques.
+
+---
+
+## 9) Base de données propre (version évolutive)
+
+### Entités clés
+- `users`
 - `shops`
+- `seller_verifications`
 - `categories`
 - `products`
 - `product_images`
+- `favorites`
 - `carts`
 - `cart_items`
 - `orders`
 - `order_items`
-- `order_events` (historique de statut)
+- `payments`
+- `payouts`
+- `commissions`
+- `reviews`
+- `shipments`
+- `ai_recommendation_events`
 
-### Schéma SQL (PostgreSQL recommandé)
-```sql
-create table users (
-  id uuid primary key,
-  role varchar(20) not null check (role in ('client','seller','admin')),
-  full_name varchar(120) not null,
-  email varchar(190) unique,
-  phone varchar(30) unique not null,
-  password_hash text not null,
-  city varchar(80),
-  created_at timestamptz not null default now()
-);
+### Exemple de tables paiement
+- `payments` : provider, amount, status, external_txn_id.
+- `commissions` : order_id, rate, platform_amount, seller_amount.
+- `payouts` : seller_id, payment_id, amount, status.
 
-create table shops (
-  id uuid primary key,
-  owner_id uuid not null references users(id) on delete cascade,
-  name varchar(140) not null,
-  slug varchar(160) unique not null,
-  description text,
-  whatsapp_number varchar(30) not null,
-  city varchar(80),
-  created_at timestamptz not null default now()
-);
+---
 
-create table products (
-  id uuid primary key,
-  shop_id uuid not null references shops(id) on delete cascade,
-  title varchar(180) not null,
-  description text,
-  price_gnf bigint not null check (price_gnf >= 0),
-  stock int not null default 0,
-  is_active boolean not null default true,
-  created_at timestamptz not null default now()
-);
+## 10) Architecture technique recommandée
+- **Mobile app**: React Native (ou Flutter).
+- **Backend API**: Node.js (NestJS/Express).
+- **DB**: PostgreSQL.
+- **Cache/queue**: Redis + BullMQ.
+- **Stockage images**: Cloudinary ou S3.
+- **Recherche**: PostgreSQL full text (puis Elastic si scale).
+- **IA**:
+  - service de génération texte,
+  - service de recommandation,
+  - pipeline traitement image.
+- **Déploiement**: Render / Railway / AWS.
 
-create table carts (
-  id uuid primary key,
-  user_id uuid not null references users(id) on delete cascade,
-  status varchar(20) not null default 'active' check (status in ('active','converted')),
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
+---
 
-create table cart_items (
-  id uuid primary key,
-  cart_id uuid not null references carts(id) on delete cascade,
-  product_id uuid not null references products(id),
-  quantity int not null check (quantity > 0),
-  unit_price_gnf bigint not null check (unit_price_gnf >= 0),
-  unique(cart_id, product_id)
-);
-
-create table orders (
-  id uuid primary key,
-  user_id uuid not null references users(id),
-  order_ref varchar(40) unique not null,
-  status varchar(20) not null default 'pending'
-    check (status in ('pending','confirmed','shipped','delivered','cancelled')),
-  total_gnf bigint not null check (total_gnf >= 0),
-  whatsapp_sent boolean not null default false,
-  created_at timestamptz not null default now()
-);
-
-create table order_items (
-  id uuid primary key,
-  order_id uuid not null references orders(id) on delete cascade,
-  product_id uuid not null references products(id),
-  seller_id uuid not null references users(id),
-  quantity int not null check (quantity > 0),
-  unit_price_gnf bigint not null check (unit_price_gnf >= 0)
-);
-```
-
-## API minimale (MVP)
+## 11) API minimale (MVP + extension paiements)
 - `POST /auth/register-client`
 - `POST /auth/register-seller`
 - `POST /auth/login`
@@ -142,28 +193,59 @@ create table order_items (
 - `GET /products`
 - `GET /products/:id`
 - `POST /cart/items`
-- `PATCH /cart/items/:itemId`
-- `DELETE /cart/items/:itemId`
+- `PATCH /cart/items/:id`
+- `DELETE /cart/items/:id`
 - `POST /orders/from-cart`
 - `GET /orders/me`
 - `POST /orders/:id/whatsapp-link`
+- `POST /payments/initiate`
+- `POST /payments/webhook/:provider`
+- `POST /orders/:id/reviews`
 
-## Stack conseillée
-- Frontend : React/Next.js (UI visuelle type cards/masonry).
-- Backend : Node.js + Express.
-- DB : PostgreSQL + Prisma/Sequelize.
-- Stockage images : Cloudinary ou S3.
-- Déploiement : Render/Railway/Fly.
+---
 
-## Parcours utilisateur
-1. Client crée son compte.
-2. Explore le feed, ouvre un produit.
-3. Ajoute au panier.
-4. Valide le panier → création commande.
-5. Clique “Commander sur WhatsApp” pour contacter le vendeur avec message pré-rempli.
+## 12) Roadmap de mise en œuvre
 
-## Contraintes importantes
-- **Aucun paiement automatique** dans le MVP.
-- Traçabilité complète des commandes en base.
-- Protection anti-spam (rate limiting) et validation stricte des entrées.
-- Journalisation et sauvegarde régulière de la base.
+### Phase 0 — Cadrage (1–2 semaines)
+- UX wireframes.
+- Schéma DB final.
+- Spécification API.
+
+### Phase 1 — MVP sans paiement auto (4–6 semaines)
+- Comptes client/vendeur.
+- Boutique + produits.
+- Feed + recherche.
+- Panier + commande.
+- WhatsApp + paiement à la livraison.
+
+### Phase 2 — Paiements locaux & revenus (3–4 semaines)
+- Orange Money + MTN MoMo.
+- Commission plateforme.
+- Split payment.
+
+### Phase 3 — IA & confiance avancée (3–5 semaines)
+- Recommandations personnalisées.
+- Génération de descriptions.
+- Amélioration image.
+- Scoring anti-fraude.
+
+---
+
+## 13) KPI à suivre
+- GMV mensuel.
+- Nombre de vendeurs actifs.
+- Taux conversion visite → commande.
+- Panier moyen.
+- Taux de livraison réussie.
+- Taux de litiges/remboursements.
+- Réachat à 30 jours.
+
+---
+
+## 14) Décision produit recommandée
+Commencer **simple et fiable**:
+1. MVP avec WhatsApp + paiement à la livraison,
+2. puis paiements Orange Money / MTN MoMo,
+3. puis IA pour accélérer la croissance.
+
+Cette stratégie réduit le risque, construit la confiance locale, et permet d’atteindre rapidement un produit utilisable en Guinée.
